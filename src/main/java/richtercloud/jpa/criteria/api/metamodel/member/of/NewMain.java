@@ -33,7 +33,7 @@ public class NewMain {
         Root<ConcreteEntity> concreteRoot = criteria.from(ConcreteEntity.class);
         criteria.select(concreteRoot);
         SetAttribute<AbstractEntity, AUser> b = ConcreteEntity_.createdBy;
-        PluralAttribute<ConcreteEntity, Set<AUser>, AUser> d = b;
+        PluralAttribute<AbstractEntity, Set<AUser>, AUser> d = b;
         Expression<Set<AUser>> c = concreteRoot.get(d);
         criteria.where(cb.isNotMember(user, c));
         TypedQuery<ConcreteEntity> query = em.createQuery(criteria);
